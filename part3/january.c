@@ -16,7 +16,7 @@ int main() {
   node_t *root = NULL;
     
   while (1) {
-    printf("=======================================\n");
+    printf("===========================================\n");
     printf("Please enter a command: ");
     int index;
     float min, max;
@@ -104,12 +104,9 @@ void insert(node_t **node, int index, float min, float max) {
   }
 }
 void delete(node_t **node, int index) {
-  if ((**node).next == NULL && (**node).index == index) {
-    *node = NULL;
-  }
-
-  else if ((**node).next != NULL && (**node).index == index) {
+  if ((**node).index == index) {
     *node = (**node).next;
+    free(*node);
   }
 
   else {
