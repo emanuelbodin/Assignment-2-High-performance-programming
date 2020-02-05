@@ -20,8 +20,8 @@ int main() {
     printf("Please enter a command: ");
     int index;
     float min, max;
-    char command;
-    int r = scanf("%c", &command);
+    char command = 'P';
+    int r = scanf(" %c", &command);
     if (r != 1) {
       printf("Breaking loop now.\n");
       break;
@@ -104,9 +104,14 @@ void insert(node_t **node, int index, float min, float max) {
   }
 }
 void delete(node_t **node, int index) {
-  if ((**node).index == index) {
+  if ((*node) == NULL) {
+    
+  }
+
+  else if ((**node).index == index) {
+    node_t *old_node = *node;
     *node = (**node).next;
-    free(*node);
+    free(old_node);
   }
 
   else {
